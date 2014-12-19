@@ -10,7 +10,7 @@
         <div class="form-group has-feedback" ng-class="{'has-error':myForm.userName.$invalid && myForm.userName.$dirty , 'has-success':myForm.userName.$valid}">
           <label  class="col-sm-2 control-label">UserName</label>
           <div class="col-sm-6">
-            <input type="text" name="userName" class="form-control" ng-pattern="/^[a-zA-Z]{1}/" ng-minlength="4" ng-maxlength="15" ng-model="register.user" required>
+            <input type="text" name="userName" class="form-control" ng-pattern="/^[a-zA-Z]{1}/" ng-minlength="4" ng-maxlength="15" ng-model='data.user' required>
             <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok':myForm.userName.$valid}"></span>
           </div>
           <!-- 错误显示 -->
@@ -31,11 +31,11 @@
         </div>
 
         <!--  passWord Validation -->
-        <div class="form-group has-feedback" ng-class="{'has-error':myForm.Password.$invalid && myForm.Password.$dirty , 'has-success':myForm.Password.$valid}">
+        <div class="form-group has-feedback" ng-class="{'has-error':myForm.Password.$invalid && myForm.Password.$dirty , 'has-success':myForm.Password.$valid && myForm.Password.$dirty}">
           <label  class="col-sm-2 control-label">Password</label>
           <div class="col-sm-6">
-            <input type="password" name="Password" class="form-control" ng-minlength="4" ng-maxlength="15" ng-model="register.password" required>
-            <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok':myForm.Password.$valid}"></span>
+            <input type="password" name="Password" class="form-control" ng-minlength="4" ng-maxlength="15" ng-model="data.password" required>
+            <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok':myForm.Password.$valid && myForm.Password.$dirty}"></span>
           </div>
           <!-- 错误显示 -->
           <div class="col-sm-4">
@@ -55,7 +55,7 @@
         <div class="form-group has-feedback" ng-class="{'has-error':myForm.passwordConfirm.$invalid && myForm.passwordConfirm.$dirty , 'has-success':myForm.passwordConfirm.$valid && register.passwordConfirm == register.password}">
           <label  class="col-sm-2 control-label">PasswordConfirm</label>
           <div class="col-sm-6">
-            <input type="password" name="passwordConfirm" class="form-control" ng-model="register.passwordConfirm" required >
+            <input type="password" name="passwordConfirm" class="form-control" ng-model="data.passwordConfirm" required >
             <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok':myForm.passwordConfirm.$valid  && register.passwordConfirm == register.password}"></span>
           </div>
           <!-- 错误显示 -->
@@ -73,7 +73,7 @@
         <div class="form-group has-feedback" ng-class="{'has-error':myForm.Email.$invalid && myForm.Email.$dirty , 'has-success':myForm.Email.$valid}">
           <label  class="col-sm-2 control-label">Email</label>
           <div class="col-sm-6">
-            <input type="Email" name="Email" class="form-control" ng-model="register.Email" required>
+            <input type="Email" name="Email" class="form-control" ng-model="data.Email" required>
             <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok':myForm.Email.$valid}"></span>
           </div>
           <!-- 错误显示 -->
@@ -90,7 +90,7 @@
         <!-- submit -->
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-default" ng-disabled="myForm.$invalid">register</button>
+            <button type="submit" class="btn btn-default" ng-disabled="myForm.$invalid" ng-click="register()">register</button>
             <button type="reset" class="btn btn-default" ng-click="reset()">reset</button>
           </div>
         </div>
