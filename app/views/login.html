@@ -1,0 +1,61 @@
+<div class="container">
+  <h2 class="text-center">login</h2>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-3">
+
+      <form name="myForm" class="form-horizontal">
+
+        <!--     userName Validation -->
+        <div class="form-group has-feedback" ng-class="{'has-error':myForm.userName.$invalid && myForm.userName.$dirty , 'has-success':myForm.userName.$valid}">
+
+          <label  class="col-sm-2 control-label">UserName</label>
+
+          <div class="col-sm-6">
+            <input type="text" name="userName" class="form-control" ng-pattern="/^[a-zA-Z]{1}/" ng-minlength="4" ng-maxlength="15" ng-model="login.user" required>
+            <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok':myForm.userName.$valid}"></span>
+          </div>
+          <!-- 错误显示 -->
+          <div class="col-sm-4">
+            <label ng-show="myForm.userName.$error.minlength && !(myForm.userName.$error.pattern)" class="text-danger control-label">
+              too short!
+            </label>
+            <label ng-show="myForm.userName.$error.maxlength" class="ext-danger control-label">
+              too long!
+            </label>
+            <label ng-show="myForm.userName.$error.pattern" class="ext-danger control-label">
+              字母开头
+            </label>
+            <label ng-show="myForm.userName.$error.required && myForm.userName.$dirty " class="ext-danger control-label">
+              required
+            </label>
+          </div>
+        </div>
+
+        <!--  passWord Validation -->
+        <div class="form-group has-feedback" ng-class="{'has-error':myForm.Password.$invalid && myForm.Password.$dirty , 'has-success':myForm.Password.$valid}">
+
+          <label  class="col-sm-2 control-label">Password</label>
+
+          <div class="col-sm-6">
+            <input type="password" name="Password" class="form-control" ng-minlength="4" ng-maxlength="15" ng-model="login.user" required>
+            <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok':myForm.Password.$valid}"></span>
+          </div>
+          <!-- 错误显示 -->
+          <div class="col-sm-4">
+            <label ng-show="myForm.Password.$error.minlength" class="text-danger control-label">
+              too short!
+            </label>
+            <label ng-show="myForm.Password.$error.maxlength" class="ext-danger control-label">
+              too long!
+            </label>
+            <label ng-show="myForm.Password.$error.required && myForm.Password.$dirty " class="ext-danger control-label">
+              required
+            </label>
+          </div>
+        </div>
+
+
+      </form>
+    </div>
+  </div>
+</div>
