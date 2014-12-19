@@ -12,7 +12,7 @@ module.exports = function(grunt){
 				}
 			}
 		},
-		/*合并*/
+		/**合并**/
 		concat: {
 			options: {
 				banner: '<%= banner %>' 
