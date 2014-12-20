@@ -52,15 +52,15 @@
         </div>
 
         <!-- password confirm -->
-        <div class="form-group has-feedback" ng-class="{'has-error':myForm.passwordConfirm.$invalid && myForm.passwordConfirm.$dirty , 'has-success':myForm.passwordConfirm.$valid && register.passwordConfirm == register.password}">
+        <div class="form-group has-feedback" ng-class="{'has-error':myForm.passwordConfirm.$invalid && myForm.passwordConfirm.$dirty , 'has-success':myForm.passwordConfirm.$valid && data.passwordConfirm == data.password}">
           <label  class="col-sm-2 control-label">PasswordConfirm</label>
           <div class="col-sm-6">
             <input type="password" name="passwordConfirm" class="form-control" ng-model="data.passwordConfirm" required >
-            <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok':myForm.passwordConfirm.$valid  && register.passwordConfirm == register.password}"></span>
+            <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok':myForm.passwordConfirm.$valid  && data.passwordConfirm == data.password}"></span>
           </div>
           <!-- 错误显示 -->
           <div class="col-sm-4">
-            <label ng-show="(register.passwordConfirm != register.password) && myForm.passwordConfirm.$dirty && !myForm.passwordConfirm.$error.required" class="text-danger control-label">
+            <label ng-show="(data.passwordConfirm != data.password) && myForm.passwordConfirm.$dirty && !myForm.passwordConfirm.$error.required" class="text-danger control-label">
               密码不一致
             </label>
             <label ng-show="myForm.passwordConfirm.$error.required && myForm.passwordConfirm.$dirty " class="ext-danger control-label">
