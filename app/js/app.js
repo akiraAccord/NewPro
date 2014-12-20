@@ -1,4 +1,5 @@
 /*! Gruntfile.JS 20-12-2014 */
+
 var app = angular.module('myApp', ['ngRoute']);
 
 app.config(['$routeProvider',function($routeProvider) {
@@ -23,14 +24,28 @@ app.config(['$routeProvider',function($routeProvider) {
 		redirectTo: '/'
 	})
 }])
-app.controller('LoginController', ['$scope', function($scope){
-	
+app.controller('LoginController', ['$scope','$http','$location', function($scope,$http,$location){
+	/*提交数据*/
+	$scope.login = function(){
+		$http({
+			method:"POST",
+			url:'js/controller/test.json',
+			data:$scope.data
+		}).success(function(data){
+			console.log("sucesss.....");
+			$location.path('/user');
+		}).error(function(data,status,headers,config){
+			console.log("error....")
+		})	
+	}
 }])
 app.controller('RegisterController', ['$scope','$http','$location', function($scope,$http,$location){
+	/*表单数据重置*/
 	$scope.reset = function(){
 		$scope.myForm.$setPristine();
 	}
 
+	/*数据提交*/
 	$scope.register = function(){
 		console.log($scope.data);
 
@@ -40,10 +55,10 @@ app.controller('RegisterController', ['$scope','$http','$location', function($sc
 			data:$scope.data
 		}).success(function(data,status,headers,config){
 			console.log(data);
+			$location.path('/user');
 		}).error(function(data,status,headers,config){
 			console.log("error....");
 		})
-
 	}
 }])
 app.controller('SetController', ['$scope', function($scope){

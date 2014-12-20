@@ -18,7 +18,7 @@ module.exports = function(grunt){
 				banner: '<%= banner %>' 
 			},
 			js: {
-				src: ['app/js/router/*.js','app/js/services/*.js','app/js/controller/*.js','app/js/directives/*.js'],
+				src: ['app/js/services/*.js','app/js/router/*.js','app/js/controller/*.js','app/js/directives/*.js'],
 				dest: 'app/js/app.js'
 			},
 		},
